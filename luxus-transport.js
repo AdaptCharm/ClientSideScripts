@@ -208,12 +208,15 @@
         }
         if ($('.stricky').length) {
             var headerScrollPos = 100;
-            var stricky = $('.stricky');
+            var stricky = $('.stricky'),
+                logo = $('.logo');
             if ($(window).scrollTop() > headerScrollPos) {
                 stricky.removeClass('slideIn animated');
                 stricky.addClass('stricky-fixed slideInDown animated');
+                logo.addClass('center-side-box slideInDown animated');
             } else if ($(this).scrollTop() <= headerScrollPos) {
                 stricky.removeClass('stricky-fixed slideInDown animated');
+                logo.removeClass('center-side-box slideInDown animated');
                 stricky.addClass('slideIn animated');
             }
         }
