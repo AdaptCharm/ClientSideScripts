@@ -219,10 +219,6 @@
         }
     });
     $(window).on('load', function() {
-        if ($('.preloader').length) {
-            $('.preloader').fadeOut('slow');
-        }
-
         if ($('.testimonials-slider-one').length) {
             var testiCarouselOne = $('.testimonials-slider-one').bxSlider({
                 // adaptiveHeight: true,
