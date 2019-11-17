@@ -212,7 +212,9 @@
             if ($(window).scrollTop() > headerScrollPos) {
                 stricky.removeClass('slideIn animated');
                 stricky.addClass('stricky-fixed slideInDown animated');
-                $('.center-side-box').show();
+                if (screen.width >= 768 && screen.width <= 1199) {
+                    $('.center-side-box').show();
+                }
             } else if ($(this).scrollTop() <= headerScrollPos) {
                 stricky.removeClass('stricky-fixed slideInDown animated');
                 $('.center-side-box').hide();
