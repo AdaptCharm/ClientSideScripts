@@ -72,8 +72,6 @@
 
 		initialize: function() {
 
-			this.SvgPolyfill();
-
 			this.headerNav();
 
 			this.countDown();
