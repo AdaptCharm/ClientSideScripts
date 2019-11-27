@@ -1,11 +1,6 @@
 ;(function($){
 	"use strict";
 
-	$('body:not(.page-loader-disable)').jpreLoader({
-		showSplash: false,
-		loaderVPos: "50%",
-	});
-
 	$.fn.exists = function () {
 		return this.length > 0;
 	};
