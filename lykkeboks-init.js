@@ -8,7 +8,7 @@
 	/* ----------------------------------------------------------- */
 	/*  Predefined Variables
 	/* ----------------------------------------------------------- */
-	var $template_var = $('body').data('template');
+	var $template_var = $('body');
 	var $color_primary = '#ffdc11';
 	var $main_nav     = $('.main-nav');
 	var $circular_bar = $('.circular__bar');
@@ -60,19 +60,15 @@
 	var $twitch_streams = $('.twitch-streams');
 	var posts_filterable = $('.js-posts--filterable');
 
-	if ( $template_var == 'template-soccer' ) {
-		$color_primary = '#1892ed';
-	} else if ( $template_var == 'template-esports') {
-		$color_primary = '#00ff5b';
-	} else if ( $template_var == 'template-football' ) {
-		$color_primary = '#f92552';
-	}
-
 	var Core = {
 
 		initialize: function() {
 
+			this.SvgPolyfill();
+
 			this.headerNav();
+
+			this.countDown();
 
 			this.circularBar();
 
@@ -96,6 +92,10 @@
 
 			this.miscScripts();
 
+		},
+
+		SvgPolyfill: function() {
+			svg4everybody();
 		},
 
 		headerNav: function() {
@@ -206,6 +206,18 @@
 					$('.header-mobile').toggleClass('header-mobile--expanded');
 				});
 			}
+		},
+
+		countDown: function() {
+
+			var countdown = $('.countdown-counter');
+			var count_time = countdown.data('date');
+			countdown.countdown({
+				date: count_time,
+				render: function(data) {
+					$(this.el).html("<div class='countdown-counter__item countdown-counter__item--days'>" + this.leadingZeros(data.days, 2) + " <span class='countdown-counter__label'>days</span></div><div class='countdown-counter__item countdown-counter__item--hours'>" + this.leadingZeros(data.hours, 2) + " <span class='countdown-counter__label'>hours</span></div><div class='countdown-counter__item countdown-counter__item--mins'>" + this.leadingZeros(data.min, 2) + " <span class='countdown-counter__label'>mins</span></div><div class='countdown-counter__item countdown-counter__item--secs'>" + this.leadingZeros(data.sec, 2) + " <span class='countdown-counter__label'>secs</span></div>");
+				}
+			});
 		},
 
 		circularBar: function() {
@@ -2115,7 +2127,7 @@
 					get: 'user',
 					target: 'instagram-feed',
 					userId: '2251271172',
-					accessToken: '2251271172.0309320.53f9ec0c2e6445d0853a7b99757107bf',
+					accessToken: '',
 					limit: 6,
 					template: '<li class="widget-instagram__item"><a href="{{link}}" id="{{id}}" class="widget-instagram__link-wrapper" target="_blank"><span class="widget-instagram__plus-sign"><img src="{{image}}" alt="" class="widget-instagram__img" /></span></a></li>'
 				});
@@ -2129,7 +2141,7 @@
 					get: 'user',
 					target: 'instagram-feed-alt',
 					userId: '2251271172',
-					accessToken: '2251271172.0309320.53f9ec0c2e6445d0853a7b99757107bf',
+					accessToken: '',
 					limit: 12,
 					template: '<li class="widget-instagram__item"><a href="{{link}}" id="{{id}}" class="widget-instagram__link-wrapper" target="_blank"><span class="widget-instagram__plus-sign"><img src="{{image}}" alt="" class="widget-instagram__img" /></span></a></li>',
 					resolution: 'low_resolution'
@@ -2144,7 +2156,7 @@
 					get: 'user',
 					target: 'instagram-feed-section',
 					userId: '2251271172',
-					accessToken: '2251271172.0309320.53f9ec0c2e6445d0853a7b99757107bf',
+					accessToken: '',
 					limit: 10,
 					template: '<li class="widget-instagram__item"><a href="{{link}}" id="{{id}}" class="widget-instagram__link-wrapper" target="_blank"><span class="widget-instagram__plus-sign"><img src="{{image}}" alt="" class="widget-instagram__img" /></span></a></li>',
 					resolution: 'low_resolution'
@@ -2161,27 +2173,27 @@
 
 				$social_counters.SocialCounter({
 					// Facebook
-					facebook_user: 'danfisher.dev',
-					facebook_token: '275780749525027|Ja92xbF1Zf5UNwGqNohAfBJjEaY',
+					facebook_user: '',
+					facebook_token: '',
 
 					// Google+
-					google_plus_id: '117779163783887381666',
-					google_plus_key: 'AIzaSyAK02uSaWrb9IVqYjXxXjNvhwwo-GlG_1I',
+					google_plus_id: '',
+					google_plus_key: '',
 
 					// Instagram
-					instagram_user: 'dan.fisher.dev',
-					instagram_token: '2251271172.0309320.53f9ec0c2e6445d0853a7b99757107bf',
+					instagram_user: '',
+					instagram_token: '',
 
 					// Twitter
-					twitter_user: 'danfisher_dev',
+					twitter_user: '',
 
 					// Twitch
-					twitch_username: 'dreamhackfighters',
-					twitch_client_id: '8jaxjp5fhyixqrbf3lyzjg03pfyqbd',
+					twitch_username: '',
+					twitch_client_id: '',
 
 					// YouTube
-					youtube_user: 'UCbYqVTgLVezPsFZAA_QsvFw',
-					youtube_key: 'AIzaSyAf_wP5MwGbYs7hmcynN0phgQg1_-okJ_I',
+					youtube_user: '',
+					youtube_key: '',
 				});
 
 			}
