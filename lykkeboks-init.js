@@ -74,8 +74,6 @@
 
 			this.headerNav();
 
-			this.countDown();
-
 			this.circularBar();
 
 			this.MagnificPopup();
@@ -208,18 +206,6 @@
 					$('.header-mobile').toggleClass('header-mobile--expanded');
 				});
 			}
-		},
-
-		countDown: function() {
-
-			var countdown = $('.countdown-counter');
-			var count_time = countdown.data('date');
-			countdown.countdown({
-				date: count_time,
-				render: function(data) {
-					$(this.el).html("<div class='countdown-counter__item countdown-counter__item--days'>" + this.leadingZeros(data.days, 2) + " <span class='countdown-counter__label'>days</span></div><div class='countdown-counter__item countdown-counter__item--hours'>" + this.leadingZeros(data.hours, 2) + " <span class='countdown-counter__label'>hours</span></div><div class='countdown-counter__item countdown-counter__item--mins'>" + this.leadingZeros(data.min, 2) + " <span class='countdown-counter__label'>mins</span></div><div class='countdown-counter__item countdown-counter__item--secs'>" + this.leadingZeros(data.sec, 2) + " <span class='countdown-counter__label'>secs</span></div>");
-				}
-			});
 		},
 
 		circularBar: function() {
