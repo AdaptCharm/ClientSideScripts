@@ -102,10 +102,6 @@
 
 		},
 
-		SvgPolyfill: function() {
-			svg4everybody();
-		},
-
 		headerNav: function() {
 
 			if ( $main_nav.exists() ) {
